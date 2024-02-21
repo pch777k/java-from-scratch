@@ -89,7 +89,7 @@ public class Homework5Test {
         //when
         int result = lengthOfLongestStringForEachLoop(homework);
         //then
-        assertEquals(8, result);
+        assertEquals(10, result);
     }
 
     @Test

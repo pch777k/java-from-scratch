@@ -2,25 +2,9 @@ package com.pch777;
 
 public class Homework5 {
      public static void main(String[] args) {
-        String someText = "Write once, run anywhere";
-        String[] homework = {"if", "for", "for each", "while", "do while", "continue", "break", "switch", "unit tests"};
 
-        System.out.println(isASpecificCharacterInTextForLoopWithBreak('w', someText));
-        System.out.println(isASpecificCharacterInTextForLoopWithBreak('z', someText));
-        System.out.println("-----------------------------");
 
-        System.out.println(isASpecificCharacterInTextWhileLoopWithBreakStatement('w', someText));
-        System.out.println(isASpecificCharacterInTextWhileLoopWithBreakStatement('z', someText));
-        System.out.println("-----------------------------");
 
-        System.out.println(howManyTimesACharacterAppearsInTheTextContinueStatement('w', someText));
-        System.out.println(howManyTimesACharacterAppearsInTheTextContinueStatement('z', someText));
-        System.out.println("-----------------------------");
-
-        System.out.println(lengthOfLongestStringForEachLoop(homework));
-        System.out.println("-----------------------------");
-
-        System.out.println(concatStringsDoWhileLoop(3, "Java"));
 
     }
 
