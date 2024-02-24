@@ -10,13 +10,16 @@ public class Customer {
 
     public String lastName;
 
+    public Gender gender;
+
     public String email;
 
-    public Customer(String firstName, String lastName, String email) {
+    public Customer(String firstName, String lastName, String email, Gender gender) {
         this.customerId = counter++;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.gender = gender;
     }
 
     @Override
@@ -24,12 +27,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(customerId, customer.customerId) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email);
+        return Objects.equals(customerId, customer.customerId) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && gender == customer.gender && Objects.equals(email, customer.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerId, firstName, lastName, email);
+        return Objects.hash(customerId, firstName, lastName, gender, email);
     }
 
     @Override
@@ -38,6 +41,7 @@ public class Customer {
                 "customerId=" + customerId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
                 ", email='" + email + '\'' +
                 '}';
     }

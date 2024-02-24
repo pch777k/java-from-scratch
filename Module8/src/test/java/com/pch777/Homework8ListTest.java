@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Homework8ListTest {
 
-     List<Customer> customers = new ArrayList<>();
+    List<Customer> customers = new ArrayList<>();
 
     @BeforeEach
     void init() {
-        Customer al = new Customer("Al", "Pacino", "al@mail.com");
-        Customer brad = new Customer("Brad", "Pitt", "brad@mail.com");
+        Customer al = new Customer("Al", "Pacino", "al@mail.com", Gender.MALE);
+        Customer brad = new Customer("Brad", "Pitt", "brad@mail.com", Gender.MALE);
         customers.add(al);
         customers.add(brad);
     }
@@ -29,18 +29,19 @@ public class Homework8ListTest {
     @Test
     void shouldAddCustomer() {
         //given
+        Customer robert = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
         //when
-        customers.add(new Customer("Robert", "De Niro", "deniro@mail.com"));
+        customers.add(robert);
         //then
-        assertEquals(3, customers.size());
+        assertEquals(3, customers.size(), "Size should be 3 after adding a customer");
     }
 
     @Test
     void shouldAddCollectionOfCustomers() {
         //given
         List<Customer> newCustomers = new LinkedList<>(Arrays.asList(
-                new Customer("Robert", "De Niro", "deniro@mail.com"),
-                new Customer("Emma", "Stone", "emmao@mail.com")));
+                new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE),
+                new Customer("Emma", "Stone", "emmao@mail.com", Gender.FEMALE)));
         //when
         customers.addAll(newCustomers);
         //then
@@ -50,14 +51,15 @@ public class Homework8ListTest {
     @Test
     void shouldSetCustomerByIndex() {
         //given
-        Customer customer = new Customer("Robert", "De Niro", "deniro@mail.com");
+        Customer customer = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
         //when
         customers.set(0, customer);
         //then
-        assertEquals(3, customers.get(0).customerId);
-        assertEquals("Robert", customers.get(0).firstName);
-        assertEquals("De Niro", customers.get(0).lastName);
-        assertEquals("deniro@mail.com", customers.get(0).email);
+        assertEquals(3, customers.getFirst().customerId);
+        assertEquals("Robert", customers.getFirst().firstName);
+        assertEquals("De Niro", customers.getFirst().lastName);
+        assertEquals("deniro@mail.com", customers.getFirst().email);
+        assertEquals(Gender.MALE, customers.getFirst().gender);
     }
 
     @Test
@@ -72,11 +74,12 @@ public class Homework8ListTest {
     @Test
     void shouldRemoveCustomerByObject() {
         //given
+        Customer customer = customers.getFirst();
         //when
-        Customer customer = customers.get(0);
         customers.remove(customer);
         //then
         assertEquals(1, customers.size());
+        assertFalse(customers.contains(customer));
     }
 
     @Test
@@ -96,7 +99,7 @@ public class Homework8ListTest {
     @Test
     void shouldGetCustomerByIndex() {
         //given
-        customers.add(new Customer("Robert", "De Niro", "deniro@mail.com"));
+        customers.add(new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE));
         //when
         Customer customer = customers.get(2);
         //then
@@ -104,6 +107,7 @@ public class Homework8ListTest {
         assertEquals("Robert", customer.firstName);
         assertEquals("De Niro", customer.lastName);
         assertEquals("deniro@mail.com", customer.email);
+        assertEquals(Gender.MALE, customers.getFirst().gender);
 
     }
 
@@ -117,6 +121,7 @@ public class Homework8ListTest {
         assertEquals("Al", customer.firstName);
         assertEquals("Pacino", customer.lastName);
         assertEquals("al@mail.com", customer.email);
+        assertEquals(Gender.MALE, customer.gender);
 
     }
 
@@ -130,6 +135,7 @@ public class Homework8ListTest {
         assertEquals("Brad", customer.firstName);
         assertEquals("Pitt", customer.lastName);
         assertEquals("brad@mail.com", customer.email);
+        assertEquals(Gender.MALE, customer.gender);
 
     }
 
@@ -145,9 +151,7 @@ public class Homework8ListTest {
 
     @Test
     void exceptionShouldBeThrownWhenTheLengthOfArrayIsTooSmall() {
-        //given
-        //when
-        //then
+
         assertThrows(IndexOutOfBoundsException.class, () -> {
             Customer customer = customers.get(10);
         });
