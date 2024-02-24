@@ -7,11 +7,8 @@ public class Customer {
     public static int counter = 1;
     public Integer customerId;
     public String firstName;
-
     public String lastName;
-
     public Gender gender;
-
     public String email;
 
     public Customer(String firstName, String lastName, String email, Gender gender) {

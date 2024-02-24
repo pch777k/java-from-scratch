@@ -158,5 +158,43 @@ public class Homework8ListTest {
 
     }
 
+    @Test
+    void shouldIterateInReverseDirectionByListIterator() {
+        //given
+        Customer emma = new Customer("Emma", "Stone", "emmao@mail.com", Gender.FEMALE);
+        Customer robert = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
+        customers.add(emma);
+        customers.add(robert);
+        String result = "";
+
+        //when
+        ListIterator<Customer> customerIterator = customers.listIterator(customers.size());
+        while(customerIterator.hasPrevious()) {
+            result += customerIterator.previous().customerId;
+        }
+
+        //then
+        assertEquals("4321", result);
+    }
+
+    @Test
+    void shouldIterateInReverseDirectionByReversedMethod() {
+        //given
+        Customer emma = new Customer("Emma", "Stone", "emmao@mail.com", Gender.FEMALE);
+        Customer robert = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
+        customers.add(emma);
+        customers.add(robert);
+        String result = "";
+
+        //when
+
+        for(Customer customer : customers.reversed()) {
+            result += customer.customerId;
+        }
+
+        //then
+        assertEquals("4321", result);
+    }
+
 
 }
