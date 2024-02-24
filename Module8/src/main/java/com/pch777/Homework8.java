@@ -1,20 +1,33 @@
 package com.pch777;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class Homework8 {
 
     public static void main(String[] args) {
 
         List<Customer> customers = addCustomers();
+        List<Customer> customersMale = new ArrayList<>();
+        List<Customer> customersFemale = new ArrayList<>();
 
+        System.out.println("CUSTOMERS");
         for (Customer customer : customers) {
+            System.out.println(customer);
+            if (customer.gender == Gender.MALE) {
+                customersMale.add(customer);
+            } else {
+                customersFemale.add(customer);
+            }
+        }
+
+        System.out.println("FEMALE CUSTOMERS");
+        for(Customer customer : customersFemale) {
             System.out.println(customer);
         }
 
+        System.out.println("MALE CUSTOMERS");
+        customersMale.forEach(System.out::println);
 
     }
 
