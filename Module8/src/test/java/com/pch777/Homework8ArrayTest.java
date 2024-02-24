@@ -12,8 +12,8 @@ public class Homework8ArrayTest {
 
     @BeforeEach
     void init() {
-        Customer al = new Customer("Al", "Pacino", "al@mail.com");
-        Customer brad = new Customer("Brad", "Pitt", "brad@mail.com");
+        Customer al = new Customer("Al", "Pacino", "al@mail.com", Gender.MALE);
+        Customer brad = new Customer("Brad", "Pitt", "brad@mail.com", Gender.MALE);
         customers[0] = al;
         customers[1] = brad;
     }
@@ -38,7 +38,7 @@ public class Homework8ArrayTest {
     void twoCustomersShouldBeTheSame() {
         //given
         //when
-        customers[1] = new Customer("Al", "Pacino", "al@mail.com");
+        customers[1] = new Customer("Al", "Pacino", "al@mail.com", Gender.MALE);
         customers[1].customerId = 1;
         boolean result = customers[0].equals(customers[1]);
 
@@ -64,7 +64,7 @@ public class Homework8ArrayTest {
         Customer[] customersLongerArray = new Customer[3];
         customersLongerArray[0] = customers[0];
         customersLongerArray[1] = customers[1];
-        customersLongerArray[2] = new Customer("Robert", "De Niro", "deniro@mail.com");
+        customersLongerArray[2] = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
         //when
         //then
         assertEquals(3, customersLongerArray.length);
@@ -76,7 +76,7 @@ public class Homework8ArrayTest {
     @Test
     void exceptionShouldBeThrownWhenTheLengthOfArrayIsTooSmall() {
         //given
-        Customer robert = new Customer("Robert", "De Niro", "deniro@mail.com");
+        Customer robert = new Customer("Robert", "De Niro", "deniro@mail.com", Gender.MALE);
         //when
         //then
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> customers[2] = robert);
