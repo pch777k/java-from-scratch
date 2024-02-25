@@ -1,11 +1,32 @@
 package com.pch777;
 
 public class Homework5 {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
 
+        String text = "Write once, run everywhere";
+        char[] chars = {'b', 'r', 'e', 'a', 'k'};
+        String[] homework = {"if", "for", "for each", "while", "do while", "continue", "break", "switch", "unit tests"};
+        int times = 4;
+        int[] dayNumber = {1,2,3,4,5,6,7};
 
+        System.out.println("Is character " + chars[1] + " in text? " + isASpecificCharacterInTextForLoopWithBreak(chars[1], text));
+        System.out.println("Is character " + chars[0] + " in text? " + isASpecificCharacterInTextForLoopWithBreak(chars[0], text));
 
+        System.out.println("Is character " + chars[2] + " in text? " + isASpecificCharacterInTextWhileLoopWithBreakStatement(chars[2], text));
+        System.out.println("Is character " + chars[4] + " in text? " + isASpecificCharacterInTextWhileLoopWithBreakStatement(chars[4], text));
 
+        System.out.println("Concat string \"" + text.substring(12, 16) + "\" " + times + " times: " + concatStringsDoWhileLoop(times, text.substring(12, 16)));
+
+        System.out.println("How many times character \'" + chars[2] + "\' appears in text? " + howManyTimesACharacterAppearsInTheTextContinueStatement(chars[2], text));
+        System.out.println("How many times character \'" + chars[3] + "\' appears in text? " + howManyTimesACharacterAppearsInTheTextContinueStatement(chars[3], text));
+
+        System.out.println("Length of longest string: " + lengthOfLongestStringForEachLoop(homework));
+        System.out.println("The " + dayNumber[0] + " day of the week is : " + changeWeekdayNumberToDayNameSwitch1(dayNumber[0]));
+        System.out.println("The " + dayNumber[3] + " day of the week is : " + changeWeekdayNumberToDayNameSwitch2(dayNumber[3]));
+        System.out.println("The " + dayNumber[5] + " day of the week is : " + changeWeekdayNumberToDayNameSwitch3(dayNumber[5]));
+
+        System.out.println("The " + changeWeekdayNumberToDayNameSwitch2(dayNumber[4]) + "  is : " + checkIfWeekdayOrWeekendDaySwitch4(dayNumber[4]));
+        System.out.println("The " + changeWeekdayNumberToDayNameSwitch3(dayNumber[6]) + "  is : " + checkIfWeekdayOrWeekendDaySwitch4(dayNumber[6]));
     }
 
 
