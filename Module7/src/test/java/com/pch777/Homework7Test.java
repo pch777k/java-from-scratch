@@ -270,4 +270,17 @@ class Homework7Test {
 
     }
 
+    @Test
+    void shouldReturnCatSound() {
+        //given
+        Cat cat = new Cat("Garfield", "Orange", 5, "Persian", true, true);
+        //when
+        String sound = cat.makeSound("Meow");
+        //then
+        assertEquals("[Sound: Meow]", sound);
+
+    }
+
+
+
 }
