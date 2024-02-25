@@ -27,6 +27,9 @@ public class Homework5 {
 
         System.out.println("The " + changeWeekdayNumberToDayNameSwitch2(dayNumber[4]) + "  is : " + checkIfWeekdayOrWeekendDaySwitch4(dayNumber[4]));
         System.out.println("The " + changeWeekdayNumberToDayNameSwitch3(dayNumber[6]) + "  is : " + checkIfWeekdayOrWeekendDaySwitch4(dayNumber[6]));
+
+        System.out.println("The " + changeWeekdayNumberToDayNameSwitch2(dayNumber[1]) + "  is : " + checkIfWeekdayOrWeekendDayIfElse(dayNumber[1]));
+        System.out.println("The " + changeWeekdayNumberToDayNameSwitch3(dayNumber[5]) + "  is : " + checkIfWeekdayOrWeekendDayIfElse(dayNumber[5]));
     }
 
 
@@ -138,5 +141,17 @@ public class Homework5 {
             case 6,7 -> "Weekend";
             default -> throw new IllegalArgumentException("The number is not correct.");
         };
+    }
+
+    static String checkIfWeekdayOrWeekendDayIfElse(int day) {
+        String result = "";
+        if(day > 0 && day <= 5) {
+            result += "Weekday";
+        } else if (day > 5 && day <= 7){
+            result += "Weekend";
+        } else {
+            throw new IllegalArgumentException("The number is not correct.");
+        }
+        return result;
     }
 }

@@ -6,13 +6,14 @@ import static com.pch777.Homework5.*;
 import static org.junit.jupiter.api.Assertions.*;
 public class Homework5Test {
 
+    final String TEXT = "The only way to do great work is to love what you do";
+
     @Test
     void shouldFindACharacterInText() {
         //given
         char character = 's';
-        String text = "The only way to do great work is to love what you do";
         //when
-        boolean result = isASpecificCharacterInTextForLoopWithBreak(character, text);
+        boolean result = isASpecificCharacterInTextForLoopWithBreak(character, TEXT);
         //then
         assertTrue(result);
     }
@@ -21,9 +22,8 @@ public class Homework5Test {
     void shouldNotFindACharacterInText() {
         //given
         char character = 'z';
-        String text = "The only way to do great work is to love what you do";
         //when
-        boolean result = isASpecificCharacterInTextForLoopWithBreak(character, text);
+        boolean result = isASpecificCharacterInTextForLoopWithBreak(character, TEXT);
         //then
         assertFalse(result);
     }
@@ -42,9 +42,8 @@ public class Homework5Test {
     void shouldFindACharInText() {
         //given
         char character = 's';
-        String text = "The only way to do great work is to love what you do";
         //when
-        boolean result = isASpecificCharacterInTextWhileLoopWithBreakStatement(character, text);
+        boolean result = isASpecificCharacterInTextWhileLoopWithBreakStatement(character, TEXT);
         //then
         assertTrue(result);
     }
@@ -53,9 +52,8 @@ public class Homework5Test {
     void shouldNotFindACharInText() {
         //given
         char character = 'x';
-        String text = "The only way to do great work is to love what you do";
         //when
-        boolean result = isASpecificCharacterInTextWhileLoopWithBreakStatement(character, text);
+        boolean result = isASpecificCharacterInTextWhileLoopWithBreakStatement(character, TEXT);
         //then
         assertFalse(result);
     }
@@ -64,9 +62,8 @@ public class Homework5Test {
     void shouldFoundLetterOEightTimesInTheText() {
         //given
         char character = 'o';
-        String text = "The only way to do great work is to love what you do";
         //when
-        int result = howManyTimesACharacterAppearsInTheTextContinueStatement(character, text);
+        int result = howManyTimesACharacterAppearsInTheTextContinueStatement(character, TEXT);
         //then
         assertEquals(8, result);
     }
@@ -75,9 +72,8 @@ public class Homework5Test {
     void shouldNotFoundLetterZInTheText() {
         //given
         char character = 'z';
-        String text = "The only way to do great work is to love what you do";
         //when
-        int result = howManyTimesACharacterAppearsInTheTextContinueStatement(character, text);
+        int result = howManyTimesACharacterAppearsInTheTextContinueStatement(character, TEXT);
         //then
         assertEquals(0, result);
     }
@@ -206,4 +202,35 @@ public class Homework5Test {
         //then
         assertEquals("The number is not correct.", thrown.getMessage());
     }
+
+    @Test
+    void shouldReturnWeekdayWhenTheDayNumberIsFourIfElse() {
+        //given
+        int day = 4;
+        //when
+        String result = checkIfWeekdayOrWeekendDayIfElse(day);
+        //then
+        assertEquals("Weekday", result);
+    }
+
+    @Test
+    void shouldReturnWeekendDayWhenTheDayNumberIsSevenIfElse() {
+        //given
+        int day = 7;
+        //when
+        String result = checkIfWeekdayOrWeekendDayIfElse(day);
+        //then
+        assertEquals("Weekend", result);
+    }
+
+    @Test
+    void exceptionShouldBeThrownWhenDayNumberIsNotCorrectIfElse() {
+        //given
+        int day = 0;
+        //when
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> checkIfWeekdayOrWeekendDayIfElse(8));
+        //then
+        assertEquals("The number is not correct.", thrown.getMessage());
+    }
+
 }
