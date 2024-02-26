@@ -1,4 +1,4 @@
-package com.pch777;
+package com.pch777.jop.module8.model;
 
 import java.util.Objects;
 

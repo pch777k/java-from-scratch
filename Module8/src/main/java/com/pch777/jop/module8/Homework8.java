@@ -1,4 +1,7 @@
-package com.pch777;
+package com.pch777.jop.module8;
+
+import com.pch777.jop.module8.model.Customer;
+import com.pch777.jop.module8.model.Gender;
 
 import java.util.ArrayList;
 import java.util.List;
