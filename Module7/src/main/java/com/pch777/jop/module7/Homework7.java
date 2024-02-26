@@ -1,4 +1,7 @@
-package com.pch777;
+package com.pch777.jop.module7;
+
+import com.pch777.jop.module7.model.Air;
+import com.pch777.jop.module7.model.Dog;
 
 public class Homework7 {
 

@@ -1,4 +1,4 @@
-package com.pch777;
+package com.pch777.jop.module7.model;
 
 public class Plant extends LivingThing {
 

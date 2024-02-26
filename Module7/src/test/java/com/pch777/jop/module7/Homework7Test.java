@@ -1,5 +1,6 @@
-package com.pch777;
+package com.pch777.jop.module7;
 
+import com.pch777.jop.module7.model.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
